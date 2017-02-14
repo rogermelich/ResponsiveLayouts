@@ -8,38 +8,94 @@
     <title>Off Canvas</title>
 </head>
 <style>
-    .container {
-        display: flex;
-        flex-flow: wrap;
-        padding: 0px;
+    body {
         margin: 0px;
+        overflow-x: hidden;
+    }
+    .container {
+        display: block;
+        margin: 0;
+        padding: 0;
         width: 100%;
     }
-    .container div {
+    .container div{
         box-sizing: border-box;
-        min-width: 150px;
-        min-height: 40px;
+        min-height: 150px;
     }
-    .c1 .c2 .c3 {
-        border: 1px black solid;
-        width: 10px;
+    .c1,.c3 {
+        position: absolute;
+        width: 250px;
+        height: 100%;
+    }
+    .c3 {
+        left: 100%;
+        z-index: 1;
     }
     .c1 {
         background-color: red;
+        transform: translate(-250px,0);
+        transition: transform 0.4s ease-out;
+        z-index: 1;
+    }
+    .c1.open {
+        transform: translate(0,0);
     }
     .c2 {
-        background-color: green;
-    }
-    .c3 {
         background-color: blue;
     }
-
+    .c3 {
+        background-color: greenyellow;
+        transform: translate( 0,0);
+        transition: transform 0.4s ease-out;
+        z-index: 1;
+    }
+    .c3.open {
+        transform: translate(-250px,0);
+    }
 </style>
 <body>
-<div class="container" role="main">
-    <div class="c1" title="leftsidebar"></div>
-    <div class="c2" title="main"></div>
-    <div class="c3" title="rightsidebar"></div>
+<div class="container">
+    <div class="c1" role="leftsidebar" id="left">
+        <input type="button" value="close" onclick="window.closeleft()" id="leftMenuButton2">
+    </div>
+
+    <div class="c2" role="main">
+        <input type="button" value="open left" onclick="window.openleft()" id="leftMenuButton">
+        <input type="button" value="open right" onclick="window.openright()" id="rightMenuButton">
+    </div>
+    <div class="c3" role="rightsidebar" id="rigth">
+        <input type="button" value="close" onclick="window.closeright()" id="rightMenuButton2">
+    </div>
 </div>
+
+<script>
+    function openleft() {
+        var left = document.getElementById('left');
+        //Drawer
+        left.classList.add('open');
+    }
+    function closeleft() {
+        var left = document.getElementById('left');
+        //Drawer
+        left.classList.remove('open');
+    }
+
+    function openright() {
+        var right = document.getElementById('rigth');
+        //Drawer
+        right.classList.add('open');
+    }
+
+    function closeright() {
+        var right = document.getElementById('left');
+        //Drawer
+        right.classList.remove('right');
+    }
+    //var leftMenuButton = document.getElementById('leftMenuButton');
+    //leftMenuButton.addEventListener("click", open)
+    console.log(left);
+    console.log(right);
+</script>
+
 </body>
 </html>
