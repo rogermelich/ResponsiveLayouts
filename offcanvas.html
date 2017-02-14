@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Off Canvas</title>
+</head>
+<style>
+    .container {
+        display: flex;
+        flex-flow: wrap;
+        padding: 0px;
+        margin: 0px;
+        width: 100%;
+    }
+    .container div {
+        box-sizing: border-box;
+        min-width: 150px;
+        min-height: 40px;
+    }
+    .c1 .c2 .c3 {
+        border: 1px black solid;
+        width: 10px;
+    }
+    .c1 {
+        background-color: red;
+    }
+    .c2 {
+        background-color: green;
+    }
+    .c3 {
+        background-color: blue;
+    }
+
+</style>
+<body>
+<div class="container" role="main">
+    <div class="c1" title="leftsidebar"></div>
+    <div class="c2" title="main"></div>
+    <div class="c3" title="rightsidebar"></div>
+</div>
+</body>
+</html>
